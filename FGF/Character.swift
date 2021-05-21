@@ -10,7 +10,10 @@ import Foundation
 
 
 class Character {
-    
+    enum TargetType {
+        case ally
+        case ennemy
+    }
     var life : Int
     var name : String
     var weapon : Weapon
@@ -22,4 +25,15 @@ class Character {
     self.weapon = weapon
         
  }
+    func actionOn(otherCharacter: Character, target: Character.TargetType = .ennemy) {
+    
+        if target == .ally {
+            otherCharacter.life += weapon.damage
+        } else if target == .ennemy {
+            otherCharacter.life -= weapon.damage
+        }
+    }
+    
+    
 }
+

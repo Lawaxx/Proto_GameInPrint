@@ -13,9 +13,8 @@ class Game {
     
     var player1 = Player(playerNumber: 1)
     var player2 = Player(playerNumber: 2)
-    
     var characterNames = [String]()
-    
+    var diedCharacter = [Character]()
     
     
     
@@ -39,19 +38,12 @@ class Game {
             print("")
             print("Joueur \(player.playerNumber) , choisissez un combattant :")
             print ("")
-            
-            //var userAwnsered = false
-            // si "if" fonctionne deux fois seulement, si "while" en boucle infini
-            //while userAwnsered == false  {
-            
-            
-            //Verifier que le nombre est bien < 3
-            //if number >= 0 && number <= 5 {
-            
+           
             while player.team.count < 3 {
                 print ("1: Warrior  2: Priest  3: Thief  4: Lumberjack  5: Bowman ")
                 let choice = readLine()!
                 if Int(choice) != nil {
+                    
                     switch Int(choice) {
                     
                     case 1 :
@@ -133,5 +125,29 @@ class Game {
         }
         return true
     }
-  
+    
+    
+//    func teamAlive(player : Player) -> Bool {
+//        for (index , Character) in player.team.enumerated() {
+//            if Character.life < 0 {
+//                diedCharacter.append(Character)
+//                player.team.remove(at: index)
+//            }
+//        }
+//        if player.team.count == 0 {
+//            return false
+//        }
+//        return true
+//    }
+    
+    // func battleTurn(attacker: Player , defender: Player) {
+        // battleTurn(attacker: Player1 , defender : player2)
+        // Switch choice -> character in team.enum ?
+        // defender.life - attacker.damage
+        // if defender.life <= 0 -> add diedCharacter
+        // if teamAlive player2 == true
+        // battleTurn(attacker:Player2, defender: Player1)
+    //}
+    
+    
 }
