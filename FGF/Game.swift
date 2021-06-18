@@ -126,122 +126,93 @@ class Game {
         return true
     }
     
+//    func selectCharacter(at Index: [Character]) -> Character? {
+//        for (index, character) in Player.team.enumerated(){
+//              //Personnage dans le tableau
+//              print("Le personnage #\(index + 1)  \(character.name)")
+//          }
+//
+//          // Check is dead character
+//          if let choice = readLine(){
+//              if let choiceInt = Int(choice){
+//                  if choiceInt >= 1 && choiceInt <= team.count {
+//                      return team[choiceInt - 1]
+//                  }
+//              }
+//          }
+//          //   initaial choice
+//        return selectCharacter(at: [])
+//      }
+    
     func TurnOfFight (attacker: Player, defender: Player)  {
-           let chest = Chest()
+           //let chest = Chest()
+        let chest = Chest()
            // Choose character
-           let attackingCharacter = attacker.selectCharacter(team: attacker.team)
-           
-           let targetCharacter = attacker.selectCharacter(team: defender.team)
-           if let attak = attackingCharacter,let target = targetCharacter {
-               attak.attack(target: target)
-               if let newWeapon = chest.randomWeapon() {
-                   print("------------------------------------")
-                   print("you are find a new weapon")
-                   print("------------------------------------")
-                   attak.weapon = newWeapon
-               }
-           }
+        print("Joueur \(attacker.playerNumber) Choisi un personnage pour faire l'action :")
+           //let attackingCharacter = attacker.selectCharacter(team: attacker.team)
+        let attackingCharacter = attacker.selectCharacter(at: attacker.team)
+        print("")
+        print("Quel action veux tu faire ?")
+        print("")
+        print("1. Attaquer ")
+        print("2. Soigner ")
+        let action = readLine()!
+        switch Int(action) {
+        case 1:
+            //attackingCharacter!.attack(target: defender.selectCharacter(at: defender.team)!)
+            print("")
+            print("Choisi une cible:")
+         let targetCharacter = defender.selectCharacter(at: defender.team)
+            if let attak = attackingCharacter,let target = targetCharacter {
+                attak.attack(target: target)
+            }
+        case 2:
+            //attackingCharacter!.actionOn(otherCharacter: attacker.selectCharacter(at: attacker.team)! )
+            print("")
+            print("Choisi une cible:")
+         let targetCharacter = attacker.selectCharacter(at: attacker.team)
+            if let action = attackingCharacter,let target = targetCharacter {
+                action.actionOn(otherCharacter: target)
+            }
+        default: break
+            
+        }
+        
        }
+
+        
+    
     func startBattle(){
         for player in [player1, player2] {
-            print("Joueur \(player.playerNumber) choisi un personnage de ton equipe pour faire une action :")
-            player.selectCharacter(team: player.team)
-            print("Quelle action veux tu faire ?")
-            print("1. Attaquer")
-            print("2. Soigner")
-            
-            let choice = readLine()!
-            switch Int(choice) {
-            case 1 : TurnOfFight(attacker: player1, defender: player2)
-        
-            case 2 : TurnOfFight(attacker: player2, defender: player1)
-            case .none:
-                return startBattle()
-            case .some(_):
-                return startBattle()
-            }
-            while player1.teamAlive == true && player2.teamAlive == true {
-                return startBattle()
-            }
-     }
-    }
-//    func TurnOfFight (attacker: Player, defender: Player)  {
-//           let chest = Chest()
-//           // Choose character
-//           let attackingCharacter = attacker.selectCharacter(team: attacker.team)
-//
-//           let targetCharacter = attacker.selectCharacter(team: defender.team)
-//           if let attak = attackingCharacter,let target = targetCharacter {
-//               attak.attack(target: target)
-//               if let newWeapon = chest.randomWeapon() {
-//                   print("------------------------------------")
-//                   print("you are find a new weapon")
-//                   print("------------------------------------")
-//                   attak.weapon = newWeapon
-//               }
-//           }
-//       }
-//    func teamAlive(player : Player) -> Bool {
-//        for (index , Character) in player.team.enumerated() {
-//            if Character.life < 0 {
-//                diedCharacter.append(Character)
-//                player.team.remove(at: index)
-//            }
-//        }
-//        if player.team.count == 0 {
-//            return false
-//        }
-//        return true
-//    }
-//    
-//    func selectionCharacter(team: [player.team]) -> Character {
-//        if battleTurn(attacker: player1, defender: player2) {
-//
-//        }
-//    }
-    
-    
-    
-    
-//    func fight(attacker: Player , defender: Player) {
-//        
-//        fight(attacker: player1, defender: player2)
-//        while teamAlive(player: player1) && teamAlive(player: player2) {
-//            print("Joueur 1 , que veux tu faire ?")
-//            print("1. Attaquer ")
-//            print("2. Soigner ")
-//            let action = readLine()!
-//            switch Int(action) {
-//            case 1 :
-//                print("Attaquer")
-//                player1.selectionCharacter.actionOn(defender)
-//            case 2 :
-//            print("Soigner")
-//            Character.actionOn(attacker)
-//            default :
-//                print("Que veux tu faire ?")
-//            }
-//        }
-//        }
-    
-    
-     //func battleTurn(attacker: Player , defender: Player) {
-//         battleTurn(attacker: player1 , defender : player2)
-//        while teamAlive(player: player1) && teamAlive(player: player2) == true {
-//            //Chest.randomWeapon(Chest)
-//            print("Tour 1")
-//            print("Joueur 1 , a vous de jouer ")
-//            for (Character) in player1.team.enumerated() {
-//                let choice = readLine()
-                // choice.ActionOn ?
-            //}
-    
-        // Switch choice -> character in team.enum ?
-        // defender.life - attacker.damage
-        // if defender.life <= 0 -> add diedCharacter
-        // if teamAlive player2 == true
-        // battleTurn(attacker:Player2, defender: Player1)
-    //}
+            print("")
+            fight()
+        }
+     
 }
     
-
+    func fight() {
+        while teamAlive(player: player1) && teamAlive(player: player2){
+                
+                TurnOfFight(attacker: player1, defender: player2)
+                //numberOfTurn += 1
+                if teamAlive(player: player2){
+                    
+                    TurnOfFight(attacker: player2, defender: player1 )
+                }
+            }
+        }
+      
+    func teamAlive(player : Player) -> Bool {
+            for (index , Character) in player.team.enumerated() {
+                if Character.life <= 0 {
+                    diedCharacter.append(Character)
+                    player.team.remove(at: index)
+                }
+            }
+            if player.team.count == 0 {
+                return false
+            }
+            return true
+        }
+    
+}

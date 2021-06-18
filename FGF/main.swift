@@ -12,50 +12,25 @@ let game = Game()
 game.startGame()
 game.createTeams()
 game.startBattle()
-//let attacker = Warrior(name: "Attacker")
-//let guerisseur = Priest(name: "guerisseur")
-//let ennemy = Warrior(name: "ennemy")
-//let allié = Lumberjack(name: "Allié")
-//print("FIGHT")
-//print(ennemy.life)
-//print(allié.life)
-//print("Attaque sur allié ")
-//print("Guerison pour ennemy")
-//attacker.actionOn(otherCharacter: allié)
-//guerisseur.actionOn(otherCharacter: ennemy)
-//print(ennemy.life)
-//print(allié.life)
-//print("Attention contre attaque")
-//attacker.actionOn(otherCharacter: allié)
-//attacker.actionOn(otherCharacter: ennemy)
-//print(ennemy.life)
-//print(allié.life)
-//print("GUERISON x2")
-//guerisseur.actionOn(otherCharacter: ennemy)
-//guerisseur.actionOn(otherCharacter: ennemy)
-//guerisseur.actionOn(otherCharacter: allié)
-//guerisseur.actionOn(otherCharacter: allié)
-//print(ennemy.life)
-//print(allié.life)
-//guerisseur.actionOn(otherCharacter: ennemy)
-//print(ennemy.life)
-//guerisseur.actionOn(otherCharacter: ennemy)
-//print(ennemy.life)
-//print("Ennemy trop soigné (!)")
-//guerisseur.actionOn(otherCharacter: allié)
-//guerisseur.actionOn(otherCharacter: allié)
-//guerisseur.actionOn(otherCharacter: allié)
-//print(allié.life)
-//guerisseur.actionOn(otherCharacter: allié)
-//guerisseur.actionOn(otherCharacter: allié)
-//print("ATTAQUE FUNC")
-//print(ennemy.life)
-//guerisseur.attack(target: ennemy)
-//print(ennemy.life)
-//allié.attack(target: ennemy)
-//print(ennemy.life)
-//allié.attack(target: ennemy)
-//print(ennemy.life)
-//allié.attack(target: ennemy)
-//print(ennemy.life)
-//allié.attack(target: ennemy)
+
+//1)
+//Tout ce qui est interaction présentateur(Game)/joueur(Player) de type readline() -> Game
+//Eviter effet de bord type parametre qui peut rentrer en conflit avec état interne
+
+//2)
+//Se débarasser du Priest
+//Ajouter en parametre typeAction: TypeAction (enum avec 2 cases soigner, attaquer)
+
+
+//3)
+// méthode turnOnFight
+//Etape:
+//Via readline()
+// ----- Choix de l'arme ----- //
+//Choix character joueur qui à la main
+// ----- modifier arme du character ---- //
+//Choix character joueur adverse
+//Choix type d'action
+//Gérer erreur depuis class Game
+
+//Faire l'action du character sur le character adverse

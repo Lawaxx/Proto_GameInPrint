@@ -16,18 +16,23 @@ class Chest {
         let randomNumber = Int.random(in: 1...5)
         
         if randomNumber == 1 {
+            print("Un coffre contenant : Sword : apparait ")
             return Sword()
         }
         if randomNumber == 2 {
+            print("Un coffre contenant : Knife : apparait ")
             return Knife()
         }
         if randomNumber == 3 {
+            print("Un coffre contenant : Stick : apparait ")
             return Stick()
         }
         if randomNumber == 4 {
+            print("Un coffre contenant : Axe : apparait ")
             return Axe()
         }
         if randomNumber == 5 {
+            print("Un coffre contenant : Bow : apparait ")
             return Bow()
         }
     return nil

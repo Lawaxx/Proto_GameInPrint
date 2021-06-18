@@ -41,7 +41,7 @@ class Stick : Weapon {
     
     init(){
         
-        super.init(name: "Stick", damage: 10)
+        super.init(name: "Stick", damage: 0)
     }
 }
 

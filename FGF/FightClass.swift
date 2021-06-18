@@ -17,7 +17,7 @@ class Warrior : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Warrior", weapon: defaultWeapon, type: .other)
+        super.init(life: 100, name: "Warrior", weapon: defaultWeapon)
   
     }
 }
@@ -30,7 +30,7 @@ class Priest : Character {
     }
     init(name : String){
         
-        super.init(life: 100, name: "Priest", weapon: defaultWeapon, type: .priest)
+        super.init(life: 100, name: "Priest", weapon: defaultWeapon)
     }
 }
 
@@ -42,7 +42,7 @@ class Thief : Character {
     }
     init(name : String){
     
-        super.init(life: 100, name: "Thief", weapon: defaultWeapon, type: .other)
+        super.init(life: 100, name: "Thief", weapon: defaultWeapon)
     }
 }
 
@@ -54,7 +54,7 @@ class Lumberjack : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Lumberjack", weapon: defaultWeapon, type: .other)
+        super.init(life: 100, name: "Lumberjack", weapon: defaultWeapon)
     }
 }
 
@@ -66,6 +66,6 @@ class Bowman : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Bowman", weapon: defaultWeapon, type: .other)
+        super.init(life: 100, name: "Bowman", weapon: defaultWeapon)
     }
 }

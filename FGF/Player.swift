@@ -24,14 +24,16 @@ class Player {
     func addCharacter(_ character: Character){
         team.append(character)
     }
+    var diedCharacter : [Character] = []
     
-    func selectCharacter(team: [Character] ) -> Character?  {
+    //func selectCharacter(team: [Character] ) -> Character?  {
+    func selectCharacter(at Index: [Character]) -> Character? {
         for (index, character) in team.enumerated() {
               //Personnage dans le tableau
-              print("Le personnage \(index + 1)  \(character.name)")
+              print("Le personnage #\(index + 1)  \(character.name)") // Retourner le nom choisi ?
           }
          
-          // Check this dead character
+          // Check is dead character
           if let choice = readLine(){
               if let choiceInt = Int(choice){
                   if choiceInt >= 1 && choiceInt <= team.count {
@@ -39,35 +41,24 @@ class Player {
                   }
               }
           }
-          //   initaial choice
-          return selectCharacter(team: team)
+          
+        return selectCharacter(at: [])
       }
     
+    func teamAlive(player : Player) -> Bool {
+            for (index , Character) in player.team.enumerated() {
+                if Character.life < 0 {
+                    diedCharacter.append(Character)
+                    player.team.remove(at: index)
+                }
+            }
+            if player.team.count == 0 {
+                return false
+            }
+            return true
+        }
     
     
-//    func selectCharacter(at index : Int) -> Character? {
-//        for (index, Character) in team.enumerated() {
-//            if Character.life > 0 {
-//                print("Tu as choisi \(Character.name)")
-//            }
-//             if let choice = readLine() {
-//            switch choice {
-//            case "1" where team[0].life > 0 :
-//
-//
-//            case "2" : team[1]
-//
-//            case "3": team[2]
-//
-//        return nil
-//    }
-//
-//
-//}
-//             func chosenFighter(characterNumber: Int) {
-//                    fightCharacter = team[characterNumber]
-//                    print("Tu as choisi de jouer avec \(Character.name)")
-//
-//                }
-//
+    
+
 }
