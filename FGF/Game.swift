@@ -34,9 +34,8 @@ class Game {
         print ("Combattants.. A vous de jouer !")
         print ("")
         
-        
-        
     }
+    
     
     // Fonction creation d'equipe
     func createTeams(){
