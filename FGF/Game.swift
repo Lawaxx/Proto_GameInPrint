@@ -11,11 +11,11 @@ import Foundation
 
 class Game {
     
-    var player1 = Player(playerNumber: 1)
-    var player2 = Player(playerNumber: 2)
-    var characterNames = [String]()
-    var diedCharacter = [Character]()
-    var battleRound = Int()
+    private var player1 = Player(playerNumber: 1)
+    private var player2 = Player(playerNumber: 2)
+    private var characterNames = [String]()
+    private var diedCharacter = [Character]()
+    private var battleRound = Int()
     
     
     // Annonce de debut de partie
@@ -96,7 +96,7 @@ class Game {
     
     
     //Confirme le choix de character et lui demande un nom valide
-    func askNameValid(CharacterDescription : String , player : Player, type : Int) {
+    private func askNameValid(CharacterDescription : String , player : Player, type : Int) {
         print(CharacterDescription)
         var characterNameisInvalid = true
         while characterNameisInvalid == true {
@@ -129,7 +129,7 @@ class Game {
     
     
     //Check si le nom est valide
-    func characterNameIsValid (name: String) -> Bool {
+    private func characterNameIsValid (name: String) -> Bool {
         if name.count < 3 {
             print(" ❌ Nom invalide")
             return false
@@ -142,7 +142,7 @@ class Game {
     }
     
     // Fonction tour de combat
-    func turnOfFight (attacker: Player, defender: Player)  {
+    private func turnOfFight (attacker: Player, defender: Player)  {
         
         // Choix du character
         print("JOUEUR \(attacker.playerNumber) Choisi un personnage pour faire l'action :")
@@ -188,7 +188,7 @@ class Game {
         fight()
     }
     // Fonction de bataille tour par tour
-    func fight() {
+    private func fight() {
         while teamAlive(player: player1) && teamAlive(player: player2){
             
             turnOfFight(attacker: player1, defender: player2)
@@ -201,7 +201,7 @@ class Game {
         }
     }
     // Check si l'equipe est encore en vie
-    func teamAlive(player : Player) -> Bool {
+    private func teamAlive(player : Player) -> Bool {
         for (index , Character) in player.team.enumerated() {
             if Character.life <= 0 {
                 diedCharacter.append(Character)
@@ -215,7 +215,7 @@ class Game {
     }
     
     //Attribution d'une arme aléatoire
-    func newWeaponFor(character: Character) {
+    private func newWeaponFor(character: Character) {
         let newWeapon = Chest().randomWeapon()!
         
         print(newWeapon.description())
