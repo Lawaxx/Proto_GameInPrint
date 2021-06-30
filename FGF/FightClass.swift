@@ -8,6 +8,7 @@
 import Foundation
 
 
+// Les classes de personnages
 
 class Warrior : Character {
     
@@ -17,7 +18,7 @@ class Warrior : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Warrior", weapon: defaultWeapon)
+        super.init(life: 100, name: name, weapon: defaultWeapon)
   
     }
 }
@@ -30,7 +31,7 @@ class Priest : Character {
     }
     init(name : String){
         
-        super.init(life: 100, name: "Priest", weapon: defaultWeapon)
+        super.init(life: 100, name: name, weapon: defaultWeapon)
     }
 }
 
@@ -42,7 +43,7 @@ class Thief : Character {
     }
     init(name : String){
     
-        super.init(life: 100, name: "Thief", weapon: defaultWeapon)
+        super.init(life: 100, name: name, weapon: defaultWeapon)
     }
 }
 
@@ -54,7 +55,7 @@ class Lumberjack : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Lumberjack", weapon: defaultWeapon)
+        super.init(life: 100, name: name, weapon: defaultWeapon)
     }
 }
 
@@ -66,6 +67,6 @@ class Bowman : Character {
     }
     init(name: String){
         
-        super.init(life: 100, name: "Bowman", weapon: defaultWeapon)
+        super.init(life: 100, name: name, weapon: defaultWeapon)
     }
 }

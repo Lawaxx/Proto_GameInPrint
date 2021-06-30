@@ -14,7 +14,6 @@ class Character {
         self.life = life
         self.name = name
         self.weapon = weapon
-        //self.type = type
     }
     
     
@@ -24,7 +23,6 @@ class Character {
     var life : Int = 0
     var name : String = ""
     var weapon : Weapon
-    //var type : CharacterType
     var isDead : Bool {
         if life <= 0 {
         return true
@@ -32,38 +30,27 @@ class Character {
        return false
     }
 
-//    enum actionType{
-//    case attacks
-//    case heal
-//    }
-//    func actionOn(otherCharacter: Character) {
-//       
-//        if actionType == .heal {
-//            print("Sa vie est deja pleine")
-//            otherCharacter.life += 10
-//
-//        }
-//        if actionType == .attacks {
-//            otherCharacter.life -= weapon.damage
-//        }
-//       
-//    }
-   
+
+   // Fonction basique d'attaque
+    
     func attack(target: Character) {
         if target.isDead == false {
             target.life  -= weapon.damage
+            print("")
             print("\(self.name) attaque \(target.name) et lui retire \(self.weapon.damage) de PV." )
-            print("La vie de \(target.name) est maintenant de \(target.life)")
+            print("La vie de \(target.name) est maintenant de \(target.life) 🩸 ")
             print("")
         }
         if target.life <= 0 && target.isDead == true {
                 target.life = 0
                 print("")
-                print("\(target.name) est mort. Il est retiré du jeu.")
+                print(" ⚰️ \(target.name) est mort. Il est retiré du jeu.")
+                print("")
             }
      
             
         }
+    // Fonction de soin 
     func actionOn(otherCharacter: Character){
         if otherCharacter.life == 100 {
             print("La vie de \(otherCharacter.name) est deja pleine , il ne peut pas etre soigné.")
@@ -81,9 +68,7 @@ class Character {
             print("")
             print(" \(otherCharacter.name) est mort. Il ne peut plus etre soigné.")
         }
-//        if otherCharacter.life == 100 {
-//            print("La vie de \(otherCharacter.name) est deja pleine , il ne peut pas etre soigné.")
-//        }
+
     }
     
 }

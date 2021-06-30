@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Init class Weapons
+// Classe d'armes
 
 class Weapon {
     
@@ -19,7 +19,15 @@ class Weapon {
         self.name = name
         self.damage = damage
     }
+    
+    // Fonction description de l'arme
+    func description(){
+        print("Ses point de degats sont de : \(self.damage) dg")
+    }
 }
+
+
+
 
 class Sword : Weapon {
     
@@ -41,7 +49,7 @@ class Stick : Weapon {
     
     init(){
         
-        super.init(name: "Stick", damage: 0)
+        super.init(name: "Stick", damage: 10)
     }
 }
 
@@ -61,3 +69,10 @@ class Bow : Weapon {
     }
 }
 
+class Excalibur : Weapon {
+    
+    init() {
+        
+        super.init(name: "Excalibur", damage: 50)
+    }
+}
