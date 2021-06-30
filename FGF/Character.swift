@@ -25,13 +25,13 @@ class Character {
     var weapon : Weapon
     var isDead : Bool {
         if life <= 0 {
-        return true
-     }
-       return false
+            return true
+        }
+        return false
     }
-
-
-   // Fonction basique d'attaque
+    
+    
+    // Fonction basique d'attaque
     
     func attack(target: Character) {
         if target.isDead == false {
@@ -42,14 +42,14 @@ class Character {
             print("")
         }
         if target.life <= 0 && target.isDead == true {
-                target.life = 0
-                print("")
-                print(" ⚰️ \(target.name) est mort. Il est retiré du jeu.")
-                print("")
-            }
-     
-            
+            target.life = 0
+            print("")
+            print(" ⚰️ \(target.name) est mort. Il est retiré du jeu.")
+            print("")
         }
+        
+        
+    }
     // Fonction de soin 
     func actionOn(otherCharacter: Character){
         if otherCharacter.life == 100 {
@@ -68,7 +68,7 @@ class Character {
             print("")
             print(" \(otherCharacter.name) est mort. Il ne peut plus etre soigné.")
         }
-
+        
     }
     
 }

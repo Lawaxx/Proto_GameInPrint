@@ -29,7 +29,7 @@ class Weapon {
 
 
 
-class Sword : Weapon {
+final class Sword : Weapon {
     
     init(){
         
@@ -37,7 +37,7 @@ class Sword : Weapon {
     }
 }
 
-class Knife : Weapon {
+final class Knife : Weapon {
     
     init(){
         
@@ -45,7 +45,7 @@ class Knife : Weapon {
     }
 }
 
-class Stick : Weapon {
+final class Stick : Weapon {
     
     init(){
         
@@ -53,7 +53,7 @@ class Stick : Weapon {
     }
 }
 
-class Axe : Weapon {
+final class Axe : Weapon {
     
     init(){
         
@@ -61,7 +61,7 @@ class Axe : Weapon {
     }
 }
 
-class Bow : Weapon {
+final class Bow : Weapon {
     
     init(){
         
@@ -69,7 +69,7 @@ class Bow : Weapon {
     }
 }
 
-class Excalibur : Weapon {
+final class Excalibur : Weapon {
     
     init() {
         

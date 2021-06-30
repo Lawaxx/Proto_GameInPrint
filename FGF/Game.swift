@@ -15,7 +15,7 @@ class Game {
     var player2 = Player(playerNumber: 2)
     var characterNames = [String]()
     var diedCharacter = [Character]()
-    private var battleRound = Int()
+    var battleRound = Int()
     
     
     // Annonce de debut de partie
@@ -54,27 +54,25 @@ class Game {
                     switch Int(choice) {
                     
                     case 1 :
-                        AskNameValid(CharacterDescription: "Tu as choisi 🛡 Warrior, donne-lui un nom :", player: player, type: 1)
+                        askNameValid(CharacterDescription: "Tu as choisi 🛡 Warrior, donne-lui un nom :", player: player, type: 1)
                         
                     case 2 :
-                        AskNameValid(CharacterDescription: "Tu as choisi 🧙🏼‍♂️ Priest, donne-lui un nom :", player: player, type: 2)
+                        askNameValid(CharacterDescription: "Tu as choisi 🧙🏼‍♂️ Priest, donne-lui un nom :", player: player, type: 2)
                         
                     case 3 :
-                        AskNameValid(CharacterDescription: "Tu as choisi 🔪 Thief, donne-lui un nom :", player: player, type: 3)
+                        askNameValid(CharacterDescription: "Tu as choisi 🔪 Thief, donne-lui un nom :", player: player, type: 3)
                         
                     case 4 :
-                        AskNameValid(CharacterDescription: "Tu as choisi 🪓 Lumberjack, donne-lui un nom :", player: player, type: 4)
-                        
+                        askNameValid(CharacterDescription: "Tu as choisi 🪓 Lumberjack, donne-lui un nom :", player: player, type: 4)
                         
                     case 5 :
-                        AskNameValid(CharacterDescription: "Tu as choisi 🏹 Bowman, donne-lui un nom :", player: player, type: 5)
+                        askNameValid(CharacterDescription: "Tu as choisi 🏹 Bowman, donne-lui un nom :", player: player, type: 5)
                         
                     default :
                         print("")
                         print (" ❌ Choisissez un personnage valide ")
                         
                     }
-                    
                     if player.team.count == 0 || player.team.count <= 2 {
                         print("")
                         print("Choisissez un autre combattant :")
@@ -98,9 +96,8 @@ class Game {
     
     
     //Confirme le choix de character et lui demande un nom valide
-    func AskNameValid(CharacterDescription : String , player : Player, type : Int) {
+    func askNameValid(CharacterDescription : String , player : Player, type : Int) {
         print(CharacterDescription)
-        
         var characterNameisInvalid = true
         while characterNameisInvalid == true {
             let characterName = readLine()!
@@ -145,16 +142,16 @@ class Game {
     }
     
     // Fonction tour de combat
-    func TurnOfFight (attacker: Player, defender: Player)  {
-        
+    func turnOfFight (attacker: Player, defender: Player)  {
         
         // Choix du character
         print("JOUEUR \(attacker.playerNumber) Choisi un personnage pour faire l'action :")
         
         let attackingCharacter = attacker.selectCharacter()
         if Bool.random(){
-            newWeapon(character: attackingCharacter)
+            newWeaponFor(character: attackingCharacter)
         }
+        
         print("")
         print("Quel action veux tu faire ?")
         print("")
@@ -188,19 +185,18 @@ class Game {
     
     //Fonction debut de bataille
     func startBattle(){
-        
-            fight()
-        }
+        fight()
+    }
     // Fonction de bataille tour par tour
     func fight() {
         while teamAlive(player: player1) && teamAlive(player: player2){
             
-            TurnOfFight(attacker: player1, defender: player2)
+            turnOfFight(attacker: player1, defender: player2)
             battleRound += 1
             
             if teamAlive(player: player2){
                 
-                TurnOfFight(attacker: player2, defender: player1 )
+                turnOfFight(attacker: player2, defender: player1 )
             }
         }
     }
@@ -219,7 +215,7 @@ class Game {
     }
     
     //Attribution d'une arme aléatoire
-    func newWeapon(character: Character) {
+    func newWeaponFor(character: Character) {
         let newWeapon = Chest().randomWeapon()!
         
         print(newWeapon.description())
@@ -227,15 +223,17 @@ class Game {
         print("Voulez vous l'utiliser ?")
         print("1: OUI ")
         print("2: NON ")
+        
         let response = readLine()!
         
         switch Int(response){
         case 1 : character.weapon = newWeapon
         case 2 : return
-        default : if Int(response)! > 2 {
-            print("Choix invalide ! Le coffre disparait... 💨 ")
-            return
-        }
+        default :
+            if Int(response)! > 2 {
+                print("Choix invalide ! Le coffre disparait... 💨 ")
+                return
+            }
         }
     }
     
@@ -255,6 +253,7 @@ class Game {
             print("\(player2.team.forEach{element in print(element.name)}) sont encore vivant et gagnent la bataille ! ")
             print("Joueur 1 a perdu , il n'a plus de personnages en vie..")
         }
+        
         print("")
         print(" 📜 Voici les stats de la partie 📜 ")
         print("")
@@ -262,10 +261,9 @@ class Game {
         print("")
         print("Personnages tuées : ")
         print("")
+        
         for  Character in diedCharacter {
             print("Nom : \(Character.name), Life : \(Character.life) ")
         }
-        
-        
     }
 }

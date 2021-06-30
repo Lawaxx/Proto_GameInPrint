@@ -9,7 +9,7 @@ import Foundation
 
 
 
-class Chest {
+final class Chest {
     
     //Fonction attribution d'arme aléatoire 
     func randomWeapon() -> Weapon? {
@@ -40,6 +40,6 @@ class Chest {
             print(" 🎞 Un coffre contenant : ⚡️ Excalibur : apparait !")
             return Excalibur()
         }
-    return nil
- }
+        return nil
+    }
 }

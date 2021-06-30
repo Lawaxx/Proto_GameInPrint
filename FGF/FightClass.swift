@@ -10,7 +10,7 @@ import Foundation
 
 // Les classes de personnages
 
-class Warrior : Character {
+final class Warrior : Character {
     
     var defaultWeapon = Sword()
     override class var lifeMax: Int {
@@ -19,11 +19,11 @@ class Warrior : Character {
     init(name: String){
         
         super.init(life: 100, name: name, weapon: defaultWeapon)
-  
+        
     }
 }
 
-class Priest : Character {
+final class Priest : Character {
     
     var defaultWeapon = Stick()
     override class var lifeMax: Int {
@@ -35,19 +35,19 @@ class Priest : Character {
     }
 }
 
-class Thief : Character {
+final class Thief : Character {
     
     var defaultWeapon = Knife()
     override class var lifeMax: Int {
         return 100
     }
     init(name : String){
-    
+        
         super.init(life: 100, name: name, weapon: defaultWeapon)
     }
 }
 
-class Lumberjack : Character {
+final class Lumberjack : Character {
     
     var defaultWeapon = Axe()
     override class var lifeMax: Int {
@@ -59,7 +59,7 @@ class Lumberjack : Character {
     }
 }
 
-class Bowman : Character {
+final class Bowman : Character {
     
     var defaultWeapon = Bow()
     override class var lifeMax: Int {
