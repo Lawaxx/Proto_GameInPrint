@@ -53,7 +53,9 @@ class Character {
     // Fonction de soin 
     func actionOn(otherCharacter: Character){
         if otherCharacter.life == 100 {
+            print("")
             print("La vie de \(otherCharacter.name) est deja pleine , il ne peut pas etre soigné.")
+            print("")
             return game.startBattle()
         }
         

@@ -11,8 +11,8 @@ import Foundation
 
 class Game {
     
-    private var player1 = Player(playerNumber: 1)
-    private var player2 = Player(playerNumber: 2)
+    private let player1 = Player(playerNumber: 1)
+    private let player2 = Player(playerNumber: 2)
     private var characterNames = [String]()
     private var diedCharacter = [Character]()
     private var battleRound = Int()
@@ -33,12 +33,14 @@ class Game {
         print("")
         print ("Combattants.. A vous de jouer !")
         print ("")
-        
+        game.createTeams()
+        game.startBattle()
+        game.statsEndGame()
     }
     
     
     // Fonction creation d'equipe
-    func createTeams(){
+   private func createTeams(){
         
         for player in [player1, player2] {
             
@@ -241,7 +243,7 @@ class Game {
         }
     }
     // Fonction Statistique de fin de jeu 
-    func statsEndGame() {
+    private func statsEndGame() {
         print("")
         print("")
         
