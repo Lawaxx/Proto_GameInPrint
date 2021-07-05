@@ -147,6 +147,7 @@ class Game {
         
         // Choix du character
         print("JOUEUR \(attacker.playerNumber) Choisi un personnage pour faire l'action :")
+        print("")
         
         let attackingCharacter = attacker.selectCharacter()
         if Bool.random(){
