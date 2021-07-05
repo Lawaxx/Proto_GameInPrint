@@ -49,7 +49,7 @@ class Game {
             while player.team.count < 3 {
                 print ("1: 🛡 Warrior (100 PV / Sword 25dg)  2: 🧙🏼‍♂️ Priest (100 PV / Stick 10dg)  3: 🔪 Thief (100 PV / Knife 15dg)  4: 🪓 Lumberjack (100 PV/ Axe 30dg)  5: 🏹 Bowman (100 PV / Bow 15dg) ")
                 let choice = readLine()!
-                if Int(choice) == Int(choice)  {
+                if Int(choice) == Int(choice) {
                     switch Int(choice) {
                     
                     case 1 :
@@ -158,6 +158,7 @@ class Game {
         print("2. 🧪 Soigner ")
         
         let action = readLine()!
+        if Int(action) == Int(action) {
         switch Int(action) {
         case 1:
             print("")
@@ -175,10 +176,15 @@ class Game {
             
             attackingCharacter.actionOn(otherCharacter: targetCharacter)
             
-        default: return
+        default: print("")
+                 print("Choix invalide...")
+                 print("")
+                 print("Joueur suivant !")
+                 print("")
+                 
             
         }
-        
+      }
     }
     
     
@@ -224,18 +230,16 @@ class Game {
         print("2: NON ")
         
         let response = readLine()!
-        
+        if Int(response) == Int(response){
         switch Int(response){
         case 1 : character.weapon = newWeapon
         case 2 : return
         default :
-            if Int(response)! > 2 {
                 print("Choix invalide ! Le coffre disparait... 💨 ")
-                return
+                
             }
         }
     }
-    
     // Fonction Statistique de fin de jeu 
     func statsEndGame() {
         print("")
